@@ -1,0 +1,1805 @@
+/* ==========================================================================
+   FloraLumina — The Botanical Encyclopedia of Flowers & Their Uses
+   Design Aesthetic: Haute Botanical Editorial / Luxury Herbarium
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-primary: #fcfbf8;
+  --bg-secondary: #f4f0e6;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-glass-card: rgba(255, 255, 255, 0.94);
+  
+  --text-dark: #142217;
+  --text-body: #34483b;
+  --text-muted: #647a6b;
+  --text-light: #fdfdfc;
+  
+  --forest-deep: #112318;
+  --forest-green: #1d3d29;
+  --sage-accent: #4a7558;
+  --sage-light: #e5ede6;
+  --sage-pale: #f0f5f1;
+  
+  --gold-warm: #c59b48;
+  --gold-light: #f7edd7;
+  --rose-blush: #c97b87;
+  --rose-light: #faedf0;
+  --amber-border: rgba(197, 155, 72, 0.28);
+  
+  --border-light: rgba(20, 34, 23, 0.08);
+  --border-subtle: rgba(20, 34, 23, 0.12);
+  --shadow-sm: 0 4px 16px rgba(17, 35, 24, 0.05);
+  --shadow-md: 0 10px 30px rgba(17, 35, 24, 0.08);
+  --shadow-lg: 0 20px 50px rgba(17, 35, 24, 0.13);
+  --shadow-card-hover: 0 24px 60px rgba(29, 61, 41, 0.18);
+  
+  /* Fonts */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Radius & Transitions */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-body);
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(229, 237, 230, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(247, 237, 215, 0.4) 0%, transparent 45%);
+}
+
+/* Background Petal Animation Canvas */
+#petalCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.75;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1260px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--text-dark);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--text-body);
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-smooth);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--forest-green), #2d553c);
+  color: var(--text-light);
+  box-shadow: 0 6px 20px rgba(29, 61, 41, 0.28);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(29, 61, 41, 0.36);
+  background: linear-gradient(135deg, #163220, #244833);
+}
+
+.btn-secondary {
+  background-color: var(--bg-card);
+  color: var(--forest-green);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background-color: var(--sage-pale);
+  border-color: var(--forest-green);
+  transform: translateY(-2px);
+}
+
+/* Header & Nav */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(252, 251, 248, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-light);
+  transition: background-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-leaf {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 6px rgba(197, 155, 72, 0.3));
+  transition: transform var(--transition-bounce);
+}
+
+.brand-logo:hover .logo-leaf {
+  transform: rotate(12deg) scale(1.1);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--forest-deep);
+}
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-warm);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  position: relative;
+  padding-block: 0.25rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold-warm);
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background-color: var(--sage-pale);
+  border-color: var(--sage-accent);
+}
+
+.action-btn.active {
+  background-color: var(--sage-light);
+  border-color: var(--forest-green);
+  color: var(--forest-green);
+}
+
+.bookmark-btn {
+  position: relative;
+}
+
+.badge-count {
+  background-color: var(--rose-blush);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--forest-deep);
+  transition: all var(--transition-fast);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding-block: 6rem 5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-backdrop-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 450px;
+  background: radial-gradient(ellipse at center, rgba(197, 155, 72, 0.16) 0%, rgba(74, 117, 88, 0.1) 50%, transparent 75%);
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.45rem 1.25rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--amber-border);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--forest-green);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--forest-deep);
+}
+
+.hero-highlight {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--forest-green), var(--gold-warm));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: var(--text-body);
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 2.8rem;
+  line-height: 1.7;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 4.5rem;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.5rem 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--forest-green);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border-light);
+}
+
+/* Remedy Finder Section */
+.remedy-finder-section {
+  padding-block: 3.5rem;
+  background: linear-gradient(to bottom, transparent, var(--sage-pale), transparent);
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-warm);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-inline: auto;
+}
+
+.remedy-chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.chip:hover {
+  border-color: var(--forest-green);
+  background-color: var(--sage-light);
+  transform: translateY(-2px);
+}
+
+.chip.active {
+  background-color: var(--forest-green);
+  color: var(--text-light);
+  border-color: var(--forest-green);
+  box-shadow: 0 4px 15px rgba(29, 61, 41, 0.25);
+}
+
+/* Garden & Catalog Section */
+.garden-section {
+  padding-block: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.catalog-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  position: relative;
+  max-width: 640px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1.1rem 3rem 1.1rem 3.2rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--forest-green);
+  box-shadow: 0 0 0 4px rgba(29, 61, 41, 0.12), var(--shadow-md);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.2rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  background-color: var(--sage-pale);
+  color: var(--forest-green);
+}
+
+.tab-btn.active {
+  background-color: var(--forest-green);
+  color: var(--text-light);
+  border-color: var(--forest-green);
+}
+
+.tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+
+.tab-btn:not(.active) .tab-count {
+  background: var(--sage-light);
+  color: var(--forest-green);
+}
+
+/* Results Meta */
+.results-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.95rem;
+}
+
+.results-count {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.view-switches {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sort-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sort-btn.active, .sort-btn:hover {
+  background: var(--sage-light);
+  border-color: var(--forest-green);
+  color: var(--forest-green);
+}
+
+/* Flower Cards Grid */
+.flower-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.2rem;
+}
+
+/* Flower Card Styling */
+.flower-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  position: relative;
+}
+
+.flower-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--amber-border);
+}
+
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background-color: var(--sage-light);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flower-card:hover .card-img {
+  transform: scale(1.08);
+}
+
+.card-badges {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+.flower-type-badge {
+  background-color: rgba(17, 35, 24, 0.82);
+  color: var(--text-light);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-bookmark-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.card-bookmark-btn:hover {
+  transform: scale(1.15);
+  background-color: white;
+}
+
+.card-bookmark-btn.saved {
+  color: var(--rose-blush);
+}
+
+.card-gallery-preview {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  gap: 0.35rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.flower-names {
+  margin-bottom: 0.75rem;
+}
+
+.flower-common-name {
+  font-size: 1.55rem;
+  margin-bottom: 0.2rem;
+}
+
+.flower-scientific-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--sage-accent);
+}
+
+.flower-tagline {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+/* Key Uses Pills in Card */
+.card-uses-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.use-pill {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--sage-pale);
+  color: var(--forest-green);
+  border: 1px solid rgba(74, 117, 88, 0.15);
+}
+
+/* Know More Card CTA Button */
+.card-footer {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.know-more-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  background: linear-gradient(135deg, var(--bg-card), var(--sage-pale));
+  border: 1px solid var(--forest-green);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--forest-green);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.know-more-btn:hover {
+  background: linear-gradient(135deg, var(--forest-green), #244b33);
+  color: var(--text-light);
+  box-shadow: 0 6px 18px rgba(29, 61, 41, 0.28);
+  transform: translateY(-2px);
+}
+
+.know-more-btn .btn-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.know-more-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Botanical Uses Grid Section */
+.botanical-uses-section {
+  padding-block: 5rem;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.uses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.use-card {
+  background-color: var(--bg-card);
+  padding: 2.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.use-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--amber-border);
+}
+
+.use-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.use-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.use-card p {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  margin-bottom: 1.25rem;
+}
+
+.use-list {
+  list-style: none;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+}
+
+.use-list li strong {
+  color: var(--forest-green);
+}
+
+/* About Section */
+.about-project-section {
+  padding-block: 6rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--amber-border);
+}
+
+.about-image-card img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.about-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(17, 35, 24, 0.92) 0%, rgba(17, 35, 24, 0.6) 70%, transparent 100%);
+  padding: 2rem 1.5rem 1.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.about-image-caption span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 1.05rem;
+}
+
+.about-image-caption em {
+  font-size: 0.85rem;
+  color: #dfd8cb;
+  font-style: italic;
+}
+
+.about-title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.about-text-column p {
+  margin-bottom: 1.25rem;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.about-feat-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.feat-icon {
+  font-size: 1.8rem;
+  background-color: var(--sage-light);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-feat-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.about-feat-item p {
+  font-size: 0.92rem;
+  margin-bottom: 0;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   MODAL DIALOG STYLING (Strict modern-web-guidance compliant)
+   ========================================================================== */
+
+/* 1. Prevent background page scroll chaining */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: rgba(14, 28, 19, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.35s ease, overlay 0.35s ease allow-discrete, display 0.35s ease allow-discrete;
+}
+
+/* 2. Top-Layer Entry & Exit Transitions */
+.flower-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(94vw, 1080px);
+  max-height: 92vh;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--amber-border);
+  box-shadow: 0 25px 80px rgba(10, 25, 15, 0.45);
+  padding: 0;
+  color: var(--text-body);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), overlay 0.35s ease allow-discrete, display 0.35s ease allow-discrete;
+}
+
+/* Starting style for entry transition */
+@starting-style {
+  .flower-modal[open] {
+    opacity: 0;
+    transform: scale(0.94) translateY(20px);
+  }
+  .flower-modal[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/* Closing fallback state */
+.flower-modal[data-closing] {
+  opacity: 0;
+  transform: scale(0.96) translateY(15px);
+}
+
+.flower-modal[data-closing]::backdrop {
+  opacity: 0;
+}
+
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 92vh;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: var(--forest-green);
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* Modal Nav Bar */
+.modal-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.8rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-nav-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--forest-green);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.modal-nav-arrow:hover {
+  transform: scale(1.05);
+}
+
+.modal-nav-indicator {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Modal Content Body Scrollable Area */
+.modal-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Modal Hero Header */
+.modal-flower-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Multi-Image Gallery in Modal */
+.modal-gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-main-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--sage-light);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  cursor: zoom-in;
+}
+
+.modal-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.modal-main-image-wrap:hover .modal-main-img {
+  transform: scale(1.04);
+}
+
+.zoom-hint-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: rgba(17, 35, 24, 0.75);
+  backdrop-filter: blur(6px);
+  color: white;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.modal-thumbs-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.modal-thumb {
+  position: relative;
+  height: 80px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.modal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-thumb:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-warm);
+}
+
+.modal-thumb.active {
+  border-color: var(--forest-green);
+  box-shadow: 0 0 0 2px rgba(29, 61, 41, 0.2);
+}
+
+.modal-thumb-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 0.65rem;
+  color: white;
+  text-align: center;
+  padding: 2px;
+}
+
+/* Modal Flower Info */
+.modal-flower-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-latin-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--sage-accent);
+}
+
+.modal-title {
+  font-size: 2.6rem;
+  color: var(--forest-deep);
+  line-height: 1.15;
+}
+
+.modal-botanical-family {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-warm);
+  font-weight: 700;
+}
+
+.modal-intro-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 1.5rem;
+}
+
+/* Botanical Data Badges */
+.botanical-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  background-color: var(--sage-pale);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(74, 117, 88, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.meta-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.meta-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--forest-deep);
+}
+
+/* Modal Interactive Tabs */
+.modal-tabs {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.5rem;
+}
+
+.modal-tab-nav {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--border-light);
+  margin-bottom: 1.8rem;
+  overflow-x: auto;
+}
+
+.modal-tab-btn {
+  padding: 0.7rem 1.2rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.modal-tab-btn:hover {
+  color: var(--forest-green);
+}
+
+.modal-tab-btn.active {
+  color: var(--forest-green);
+  border-bottom-color: var(--forest-green);
+}
+
+/* Modal Tab Panels */
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Uses Details Inside Modal */
+.detailed-uses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.use-detail-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.use-detail-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+  color: var(--forest-deep);
+}
+
+.use-detail-card p {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* DIY Recipe Card in Modal */
+.recipe-box {
+  background: linear-gradient(135deg, #fdfbf7, #f6f0e4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--amber-border);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.recipe-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.recipe-badge {
+  background-color: var(--gold-warm);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+
+.recipe-title {
+  font-size: 1.6rem;
+  color: var(--forest-deep);
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.copy-recipe-btn {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copy-recipe-btn:hover {
+  background-color: var(--sage-light);
+  border-color: var(--forest-green);
+}
+
+.recipe-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 2rem;
+}
+
+.recipe-ingredients h5, .recipe-steps h5 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--forest-green);
+  margin-bottom: 0.75rem;
+}
+
+.recipe-ingredients ul {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+}
+
+.recipe-steps ol {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+}
+
+/* Care & Folklore Section in Modal */
+.growing-guide-box {
+  background-color: var(--sage-pale);
+  padding: 1.8rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(74, 117, 88, 0.15);
+}
+
+.growing-guide-box h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.growing-tips-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.growing-tips-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.92rem;
+}
+
+.growing-tips-list li strong {
+  color: var(--forest-green);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-caption {
+  color: white;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -1.2rem;
+  right: -1.2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Bookmarks Modal Drawer */
+.bookmarks-modal {
+  position: fixed;
+  inset: auto 0 0 auto;
+  margin: 1.5rem;
+  width: min(92vw, 420px);
+  max-height: 85vh;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+}
+
+.bookmarks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.bookmarks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--sage-pale);
+  transition: background-color var(--transition-fast);
+}
+
+.bookmark-item:hover {
+  background-color: var(--sage-light);
+}
+
+.bookmark-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.bookmark-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.bookmark-item-latin {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--forest-deep);
+  color: #d1dcce;
+  padding-top: 5rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand .logo-leaf {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: white;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.footer-brand p {
+  color: #a2b7a0;
+  font-size: 0.95rem;
+  max-width: 320px;
+}
+
+.footer-links h4, .footer-ethics h4 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-warm);
+  margin-bottom: 1.25rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  color: #c0d1be;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-ethics p {
+  color: #a2b7a0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #8fa08e;
+}
+
+.back-to-top {
+  color: var(--gold-warm);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .modal-flower-hero {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  
+  .recipe-content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-card);
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .nav-links.mobile-open {
+    display: flex;
+  }
+  
+  .hamburger-btn {
+    display: flex;
+  }
+  
+  .action-btn .btn-text {
+    display: none;
+  }
+  
+  .flower-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .flower-modal {
+    width: 96vw;
+    max-height: 95vh;
+  }
+  
+  .modal-body {
+    padding: 1.4rem;
+  }
+  
+  .modal-thumbs-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .modal-thumb {
+    height: 60px;
+  }
+}

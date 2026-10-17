@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloraLumina — The Botanical Encyclopedia of Flowers & Their Uses</title>
+  <meta name="description" content="Discover the therapeutic, culinary, cosmetic, and ecological wonders of flowers. An elegant interactive botanical guide with multi-angle galleries, herbal recipes, and holistic uses.">
+  
+  <!-- Google Fonts: Playfair Display, Cinzel, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Particle Canvas (Floating Petals) -->
+  <canvas id="petalCanvas" aria-hidden="true"></canvas>
+
+  <!-- Sticky Elegant Navigation -->
+  <header class="site-header" id="top">
+    <div class="header-inner container">
+      <a href="#home" class="brand-logo" aria-label="FloraLumina Home">
+        <span class="logo-leaf">🪷</span>
+        <div class="logo-text">
+          <span class="logo-title">FloraLumina</span>
+          <span class="logo-subtitle">Botanical Codex & Floral Uses</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="mainNav">
+        <a href="#garden" class="nav-link active">Flower Gallery</a>
+        <a href="#remedy-finder" class="nav-link">Remedy Finder</a>
+        <a href="#botanical-uses" class="nav-link">Uses & Benefits</a>
+        <a href="#about-project" class="nav-link">About FloraLumina</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Audio Ambiance Toggle -->
+        <button id="audioToggleBtn" class="action-btn" title="Toggle Nature Audio Ambiance" aria-label="Toggle Nature Audio Ambiance">
+          <span class="btn-icon">🍃</span>
+          <span class="btn-text">Garden Audio</span>
+        </button>
+
+        <!-- Petals Animation Toggle -->
+        <button id="petalsToggleBtn" class="action-btn" title="Toggle Falling Petals Animation" aria-label="Toggle Falling Petals">
+          <span class="btn-icon">🌸</span>
+          <span class="btn-text">Petals</span>
+        </button>
+
+        <!-- Saved Favorites Badge -->
+        <button id="bookmarksBtn" class="action-btn bookmark-btn" title="View Saved Flowers" aria-label="View Saved Flowers">
+          <span class="btn-icon">🔖</span>
+          <span class="badge-count" id="bookmarkCount">0</span>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuBtn" class="hamburger-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-backdrop-glow"></div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="badge-icon">🌿</span>
+          <span>Herbalism • Aromatherapy • Botany • Skincare</span>
+        </div>
+        <h1 class="hero-title">
+          Unveil the Secret Power <br>
+          <span class="hero-highlight">of Earth’s Living Petals</span>
+        </h1>
+        <p class="hero-description">
+          Welcome to FloraLumina — an immersive botanical sanctuary. Explore the world’s most potent flowers, understand their scientific and therapeutic uses, view multi-angle galleries, and learn practical recipes to enrich your daily well-being.
+        </p>
+        
+        <div class="hero-cta-group">
+          <a href="#garden" class="btn btn-primary">
+            <span>Explore The Botanical Garden</span>
+            <span class="arrow">↓</span>
+          </a>
+          <a href="#remedy-finder" class="btn btn-secondary">
+            <span>Find Flowers By Use</span>
+            <span class="sparkle">✨</span>
+          </a>
+        </div>
+
+        <!-- Quick Stats Banner -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">Detailed Flower Profiles</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">48+</span>
+            <span class="stat-label">High-Resolution Photos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Holistic Use Dimensions</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Natural Herbal Wisdom</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Remedy Finder Quiz / Seeking Mode -->
+    <section class="remedy-finder-section" id="remedy-finder">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Interactive Learning Assistant</span>
+          <h2 class="section-title">What Benefit Are You Seeking Today?</h2>
+          <p class="section-subtitle">Click an everyday wellness aspiration to reveal the exact healing flowers nature provides.</p>
+        </div>
+
+        <div class="remedy-chips" id="remedyChips">
+          <button class="chip active" data-remedy="all">
+            <span class="chip-icon">🌸</span> All Natural Curations
+          </button>
+          <button class="chip" data-remedy="sleep">
+            <span class="chip-icon">🌙</span> Deep Rest & Insomnia Relief
+          </button>
+          <button class="chip" data-remedy="skin">
+            <span class="chip-icon">✨</span> Radiant Skin & Wound Healing
+          </button>
+          <button class="chip" data-remedy="stress">
+            <span class="chip-icon">🧘</span> Stress, Anxiety & Calm
+          </button>
+          <button class="chip" data-remedy="tea">
+            <span class="chip-icon">🍵</span> Soothing Teas & Digestion
+          </button>
+          <button class="chip" data-remedy="immunity">
+            <span class="chip-icon">🛡️</span> Immunity & Cold Defense
+          </button>
+          <button class="chip" data-remedy="ecology">
+            <span class="chip-icon">🐝</span> Pollinators & Garden Vitality
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Botanical Catalog Section -->
+    <section class="garden-section" id="garden">
+      <div class="container">
+        <!-- Controls: Search & Category Filter Bar -->
+        <div class="catalog-controls">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="search" 
+              id="flowerSearchInput" 
+              placeholder="Search by flower name, use (e.g. 'sleep', 'skin', 'tea'), or genus..."
+              aria-label="Search flowers by name, benefits or botanical names"
+            >
+            <button id="clearSearchBtn" class="clear-search-btn" title="Clear search" aria-label="Clear search" hidden>×</button>
+          </div>
+
+          <div class="category-tabs" role="tablist" aria-label="Flower Uses Categories">
+            <button class="tab-btn active" data-category="all" role="tab" aria-selected="true">
+              All Flowers <span class="tab-count" id="count-all">12</span>
+            </button>
+            <button class="tab-btn" data-category="medicinal" role="tab" aria-selected="false">
+              🌿 Medicinal <span class="tab-count" id="count-medicinal">0</span>
+            </button>
+            <button class="tab-btn" data-category="skincare" role="tab" aria-selected="false">
+              ✨ Skincare <span class="tab-count" id="count-skincare">0</span>
+            </button>
+            <button class="tab-btn" data-category="culinary" role="tab" aria-selected="false">
+              🍵 Culinary & Tea <span class="tab-count" id="count-culinary">0</span>
+            </button>
+            <button class="tab-btn" data-category="aromatherapy" role="tab" aria-selected="false">
+              🌸 Aromatherapy <span class="tab-count" id="count-aromatherapy">0</span>
+            </button>
+            <button class="tab-btn" data-category="ecological" role="tab" aria-selected="false">
+              🐝 Ecological <span class="tab-count" id="count-ecological">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Result Summary -->
+        <div class="results-meta">
+          <div class="results-count" id="resultsCount">Displaying all 12 botanical treasures</div>
+          <div class="view-switches">
+            <button id="sortAlphabetical" class="sort-btn active" title="Sort Alphabetically">A → Z</button>
+            <button id="showOnlyFavorites" class="sort-btn" title="Filter Only Saved Flowers">🔖 Saved Only</button>
+          </div>
+        </div>
+
+        <!-- Flower Cards Grid -->
+        <div class="flower-grid" id="flowerGrid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- No Results Empty State -->
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon">🥀</div>
+          <h3>No matching blossoms found</h3>
+          <p>Try searching for words like <em>calm</em>, <em>tea</em>, <em>honey</em>, <em>wound</em>, or reset your filters.</p>
+          <button id="resetFiltersBtn" class="btn btn-secondary">Reset All Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Pillars of Flower Uses (Educational Section) -->
+    <section class="botanical-uses-section" id="botanical-uses">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Holistic Phytotherapy</span>
+          <h2 class="section-title">The Five Sacred Dimensions of Floral Uses</h2>
+          <p class="section-subtitle">Throughout centuries across cultures, flowers have nurtured body, mind, kitchen, and soil.</p>
+        </div>
+
+        <div class="uses-grid">
+          <div class="use-card">
+            <div class="use-card-icon">🌿</div>
+            <h3>Medicinal & Therapeutic</h3>
+            <p>From anti-inflammatory flavonoids to pain-relieving glycosides, floral petals house bio-active phytochemicals that soothe nervous systems, stimulate white blood cells, and accelerate tissue regeneration.</p>
+            <ul class="use-list">
+              <li><strong>Echinacea:</strong> Immune system modulation</li>
+              <li><strong>Calendula:</strong> Epithelial cell repair & antiseptic</li>
+              <li><strong>Passionflower:</strong> Natural GABA neurotransmitter calm</li>
+            </ul>
+          </div>
+
+          <div class="use-card">
+            <div class="use-card-icon">✨</div>
+            <h3>Skincare & Dermatology</h3>
+            <p>Natural flower oils and hydrosols provide deep cellular hydration, regulate sebum, reduce hyperpigmentation, and fight oxidative stress caused by urban UV pollution.</p>
+            <ul class="use-list">
+              <li><strong>Damask Rose:</strong> Cellular toning & anti-aging</li>
+              <li><strong>Chamomile:</strong> Calms rosacea & eczema flares</li>
+              <li><strong>Peony:</strong> Paeoniflorin brightening essence</li>
+            </ul>
+          </div>
+
+          <div class="use-card">
+            <div class="use-card-icon">🍵</div>
+            <h3>Culinary, Teas & Elixirs</h3>
+            <p>Edible blossoms elevate gastronomic experiences, supplying antioxidants, tangy tartness, floral perfumes, and delicate digestive enzymes to teas, syrups, and confections.</p>
+            <ul class="use-list">
+              <li><strong>Hibiscus:</strong> Ruby-red antioxidant karkadeh</li>
+              <li><strong>Elderflower:</strong> Cordials & respiratory teas</li>
+              <li><strong>Lavender:</strong> Subtle botanical honey & bakery treats</li>
+            </ul>
+          </div>
+
+          <div class="use-card">
+            <div class="use-card-icon">🌸</div>
+            <h3>Aromatherapy & Mental Peace</h3>
+            <p>Inhaled floral volatile terpenes bypass the cognitive filter directly to the brain's limbic system, immediately modulating cortisol, heart rate, and emotional equilibrium.</p>
+            <ul class="use-list">
+              <li><strong>Jasmine:</strong> Euphoric mood enhancer & anti-stress</li>
+              <li><strong>Lavender:</strong> Linalool-driven delta brainwave sleep</li>
+              <li><strong>Rose:</strong> Heart-opening grief and tension comfort</li>
+            </ul>
+          </div>
+
+          <div class="use-card">
+            <div class="use-card-icon">🐝</div>
+            <h3>Ecology, Soil & Pollinators</h3>
+            <p>Beyond human wellness, blossoms maintain the earth’s life web. They provide nectar highways for bees and butterflies while deep taproots cleanse toxin-laden soils.</p>
+            <ul class="use-list">
+              <li><strong>Sunflower:</strong> Heavy-metal phytoremediation</li>
+              <li><strong>Lotus:</strong> Wetland water biofiltration</li>
+              <li><strong>Marigold:</strong> Natural nematode garden repeller</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About FloraLumina Section -->
+    <section class="about-project-section" id="about-project">
+      <div class="container about-grid">
+        <div class="about-image-column">
+          <div class="about-image-card">
+            <img 
+              src="https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?auto=format&fit=crop&w=800&q=80" 
+              alt="Botanical study of lavender and wildflowers"
+              loading="lazy"
+            >
+            <div class="about-image-caption">
+              <span>FloraLumina Botanical Archive</span>
+              <em>Dedicated to preserving traditional phytotherapy & floral ecology</em>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-column">
+          <span class="section-tag">About The Codex</span>
+          <h2 class="about-title">A Living Garden of Knowledge, Elegance & Healing</h2>
+          <p>
+            FloraLumina was crafted as an open-access floral herbarium to reconnect our fast-paced modern lifestyles with the gentle, enduring intelligence of flowering plants. Every blossom featured here is accompanied by deep botanical insights, practical everyday applications, and multi-angle photographic archives.
+          </p>
+          <p>
+            Whether you are brewing an herbal evening tea to ease insomnia, creating your own natural rosewater toner, or planting native flora to sustain local bee colonies, FloraLumina is your elegant field companion.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feat-item">
+              <span class="feat-icon">📖</span>
+              <div>
+                <h4>Botanical Authenticity</h4>
+                <p>Every profile includes binomial Latin nomenclature, native habitat, and optimal growing conditions.</p>
+              </div>
+            </div>
+            <div class="about-feat-item">
+              <span class="feat-icon">🌿</span>
+              <div>
+                <h4>Actionable DIY Recipes</h4>
+                <p>Learn exact infusions, tinctures, and compresses you can safely prepare at home.</p>
+              </div>
+            </div>
+            <div class="about-feat-item">
+              <span class="feat-icon">📸</span>
+              <div>
+                <h4>Rich Multi-Angle Visuals</h4>
+                <p>High-resolution botanical captures from petals, fields, extracts, and macroscopic details.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- MODAL / DEDICATED ABOUT FLOWER DETAIL DIALOG            -->
+  <!-- Modern standards: closedby="any" with fallback          -->
+  <!-- Scroll chaining prevented via overscroll-behavior       -->
+  <!-- ======================================================== -->
+  <dialog id="flowerModal" class="flower-modal" closedby="any" aria-labelledby="modalFlowerTitle">
+    <div class="modal-wrapper" id="modalWrapper">
+      <!-- Close button -->
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close flower details">✕</button>
+
+      <!-- Navigation Between Flowers -->
+      <div class="modal-nav-bar">
+        <button id="modalPrevFlowerBtn" class="modal-nav-arrow" title="Previous Flower">
+          <span>←</span> <span class="nav-btn-label" id="prevFlowerName">Previous</span>
+        </button>
+        <span class="modal-nav-indicator" id="modalNavIndicator">Flower 1 of 12</span>
+        <button id="modalNextFlowerBtn" class="modal-nav-arrow" title="Next Flower">
+          <span class="nav-btn-label" id="nextFlowerName">Next</span> <span>→</span>
+        </button>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamically injected by app.js with rich tabs, multi-image gallery, DIY recipe, botanical facts -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Lightbox for Fullscreen Image Inspection -->
+  <dialog id="lightboxModal" class="lightbox-modal" closedby="any" aria-label="Expanded Image View">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close enlarged photo">✕</button>
+      <img id="lightboxImg" src="" alt="Enlarged floral view">
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </dialog>
+
+  <!-- Favorites Drawer Dialog -->
+  <dialog id="bookmarksModal" class="bookmarks-modal" closedby="any" aria-labelledby="bookmarksTitle">
+    <div class="bookmarks-box">
+      <div class="bookmarks-header">
+        <h3 id="bookmarksTitle">🌿 My Saved Botanical Collection</h3>
+        <button id="bookmarksCloseBtn" class="modal-close-btn" aria-label="Close bookmarks">✕</button>
+      </div>
+      <div class="bookmarks-list" id="bookmarksList">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo-leaf">🪷</div>
+        <span class="footer-logo-text">FloraLumina</span>
+        <p>A homage to the beauty, medicine, and enduring poetry of flowering plants.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#garden">Botanical Catalog</a></li>
+          <li><a href="#remedy-finder">Remedy Finder</a></li>
+          <li><a href="#botanical-uses">Five Dimensions</a></li>
+          <li><a href="#about-project">About The Codex</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-ethics">
+        <h4>Safe Botanical Practice</h4>
+        <p>Always verify plant identity with an accredited herbalist or botanist before ingesting wild flora. Ensure flowers are organically grown without pesticides when used for food or medicine.</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom container">
+      <p>© 2026 FloraLumina Herbarium. Handcrafted with reverence for botanical nature.</p>
+      <a href="#top" class="back-to-top">Back to Top ↑</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

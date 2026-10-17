@@ -1,0 +1,13 @@
+{
+  "name": "floralumina-flowers-and-uses",
+  "version": "1.0.0",
+  "description": "FloraLumina — The Botanical Encyclopedia of Flowers & Their Uses",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "python -m http.server 8080"
+  },
+  "keywords": ["botany", "flowers", "herbalism", "encyclopedia"],
+  "author": "FloraLumina",
+  "license": "MIT"
+}
