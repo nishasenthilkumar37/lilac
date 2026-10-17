@@ -1056,6 +1056,13 @@ dialog::backdrop {
 }
 
 /* 2. Top-Layer Entry & Exit Transitions */
+dialog:not([open]),
+.flower-modal:not([open]),
+.lightbox-modal:not([open]),
+.bookmarks-modal:not([open]) {
+  display: none !important;
+}
+
 .flower-modal {
   position: fixed;
   inset: 0;
@@ -1069,9 +1076,12 @@ dialog::backdrop {
   padding: 0;
   color: var(--text-body);
   overflow: hidden;
-  display: flex;
   flex-direction: column;
   transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), overlay 0.35s ease allow-discrete, display 0.35s ease allow-discrete;
+}
+
+.flower-modal[open] {
+  display: flex;
 }
 
 /* Starting style for entry transition */
