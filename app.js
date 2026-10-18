@@ -19,20 +19,20 @@ const FLOWER_DATA = [
     remedyTags: ['sleep', 'stress', 'skin', 'tea', 'ecology'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Vast lavender fields swaying in Provence sunlight'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/%28MHNT%29_Bombus_pascuorum_on_Lavandula_angustifolia.jpg/1280px-%28MHNT%29_Bombus_pascuorum_on_Lavandula_angustifolia.jpg',
+        caption: '(MHNT) Bombus pascuorum on Lavandula angustifolia'
       },
       {
-        url: 'https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Close-up of purple lavender florets teeming with nectar'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/Lamiales_-_Lavandula_angustifolia_-_4.jpg',
+        caption: 'Lamiales - Lavandula angustifolia - 4'
       },
       {
-        url: 'https://images.unsplash.com/photo-1565011523534-747a8601f10a?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Pure lavender essential oil with dried flower stems'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Lamiales_-_Lavandula_angustifolia_-_5.jpg',
+        caption: 'Lamiales - Lavandula angustifolia - 5'
       },
       {
-        url: 'https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Freshly harvested artisanal lavender bouquet'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lavandula_angustifolia_-_lavender_-_Lavendel_-_01.jpg/1280px-Lavandula_angustifolia_-_lavender_-_Lavendel_-_01.jpg',
+        caption: 'Lavandula angustifolia - lavender - Lavendel - 01'
       }
     ],
     uses: {
@@ -79,20 +79,20 @@ const FLOWER_DATA = [
     remedyTags: ['skin', 'stress', 'tea'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Velvety pink Damask rose in morning dew'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Rosa_damascena_002.JPG/1280px-Rosa_damascena_002.JPG',
+        caption: 'Rosa damascena 002'
       },
       {
-        url: 'https://images.unsplash.com/photo-1496062031456-07b8f162a322?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Intense crimson rose petals with glistening moisture'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Rosa_damascena_003.JPG/1280px-Rosa_damascena_003.JPG',
+        caption: 'Rosa damascena 003'
       },
       {
-        url: 'https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Sun-dried organic rosebuds for restorative herbal tea'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/%E0%B4%AA%E0%B4%A8%E0%B5%80%E0%B5%BC_%E0%B4%B1%E0%B5%8B%E0%B4%B8%E0%B5%8D_%28Rosa_damascena%29.jpg/1280px-%E0%B4%AA%E0%B4%A8%E0%B5%80%E0%B5%BC_%E0%B4%B1%E0%B5%8B%E0%B4%B8%E0%B5%8D_%28Rosa_damascena%29.jpg',
+        caption: 'പനീർ റോസ് (Rosa damascena)'
       },
       {
-        url: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Flourishing heirloom rose garden during peak harvest'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/%E0%B4%AA%E0%B4%A8%E0%B5%80%E0%B5%BC_%E0%B4%B1%E0%B5%8B%E0%B4%B8%E0%B5%8D_%28Rosa_damascena%29_%2861560%29.jpg/1280px-%E0%B4%AA%E0%B4%A8%E0%B5%80%E0%B5%BC_%E0%B4%B1%E0%B5%8B%E0%B4%B8%E0%B5%8D_%28Rosa_damascena%29_%2861560%29.jpg',
+        caption: 'പനീർ റോസ് (Rosa damascena) (61560)'
       }
     ],
     uses: {
@@ -140,20 +140,20 @@ const FLOWER_DATA = [
     remedyTags: ['sleep', 'tea', 'skin', 'stress'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Meadow of wild chamomile flowers bathed in morning light'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Camomille_sauvage_%28Matricaria_chamomilla%29%2C_coquelicots_%28Papaver_rhoeas%29_au_bord_d%27un_champ_d%27orge_%28Hordeum_vulgare%29.jpg/1280px-Camomille_sauvage_%28Matricaria_chamomilla%29%2C_coquelicots_%28Papaver_rhoeas%29_au_bord_d%27un_champ_d%27orge_%28Hordeum_vulgare%29.jpg',
+        caption: 'Camomille sauvage (Matricaria chamomilla), coquelicots (Papaver rhoeas) au bord d\'un champ d\'orge (Hordeum vulgare)'
       },
       {
-        url: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Warm golden chamomile infusion with floating fresh blossoms'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Camomille_sauvage_%28Matricaria_chamomilla%29_et_coquelicots_%28Papaver_rhoeas%29_au_bord_d%27un_champ_d%27orge_%28Hordeum_vulgare%29.jpg/1280px-Camomille_sauvage_%28Matricaria_chamomilla%29_et_coquelicots_%28Papaver_rhoeas%29_au_bord_d%27un_champ_d%27orge_%28Hordeum_vulgare%29.jpg',
+        caption: 'Camomille sauvage (Matricaria chamomilla) et coquelicots (Papaver rhoeas) au bord d\'un champ d\'orge (Hordeum vulgare)'
       },
       {
-        url: 'https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Delicate white rays and domed golden disc of a chamomile flower'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Chamomile%40original_size.jpg/1280px-Chamomile%40original_size.jpg',
+        caption: 'Chamomile@original size'
       },
       {
-        url: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Fresh chamomile harvest ready for natural solar drying'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Matricaria_chamomilla%E2%80%93IMG_6148_01.jpg/1280px-Matricaria_chamomilla%E2%80%93IMG_6148_01.jpg',
+        caption: 'Matricaria chamomilla–IMG 6148 01'
       }
     ],
     uses: {
@@ -200,20 +200,20 @@ const FLOWER_DATA = [
     remedyTags: ['stress', 'tea', 'skin'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Pure white star-shaped jasmine blossoms in night bloom'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/%27Jasminum_officinale%27_Fiona_Sunrise_or_Golden_Poet%27s_Jasmine_at_Nuthurst%2C_West_Sussex%2C_England.JPG/1280px-%27Jasminum_officinale%27_Fiona_Sunrise_or_Golden_Poet%27s_Jasmine_at_Nuthurst%2C_West_Sussex%2C_England.JPG',
+        caption: '\'Jasminum officinale\' Fiona Sunrise or Golden Poet\'s Jasmine at Nuthurst, West Sussex, England'
       },
       {
-        url: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Jasmine vine gracefully climbing an arched stone garden arbor'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Catopsilia_pomona_lemon_migrant_on_Jasminum_officionale_flowers_74_Sunbury_St_Geebung_P1160310.jpg/1280px-Catopsilia_pomona_lemon_migrant_on_Jasminum_officionale_flowers_74_Sunbury_St_Geebung_P1160310.jpg',
+        caption: 'Catopsilia pomona lemon migrant on Jasminum officionale flowers 74 Sunbury St Geebung P1160310'
       },
       {
-        url: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Artisanal jasmine green tea pearls infused with fresh night blooms'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Catopsilia_pomona_lemon_migrant_on_Jasminum_officionale_flowers_74_Sunbury_St_Geebung_P1160312.jpg/1280px-Catopsilia_pomona_lemon_migrant_on_Jasminum_officionale_flowers_74_Sunbury_St_Geebung_P1160312.jpg',
+        caption: 'Catopsilia pomona lemon migrant on Jasminum officionale flowers 74 Sunbury St Geebung P1160312'
       },
       {
-        url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Distillation of precious jasmine absolute in botanical perfumery'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Jasminum_officinale.JPG/1280px-Jasminum_officinale.JPG',
+        caption: 'Jasminum officinale'
       }
     ],
     uses: {
@@ -260,20 +260,20 @@ const FLOWER_DATA = [
     remedyTags: ['tea', 'skin', 'immunity'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1550950158-d0d960dff51b?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Brilliant tropical scarlet hibiscus in full bloom'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Hibiscus_sabdariffa-flower-yercaud-salem-India.JPG/1280px-Hibiscus_sabdariffa-flower-yercaud-salem-India.JPG',
+        caption: 'Hibiscus sabdariffa-flower-yercaud-salem-India'
       },
       {
-        url: 'https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Fleshy ruby red hibiscus calyxes ready for botanical harvest'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Hibiscus_sabdariffa_fruits.jpg/1280px-Hibiscus_sabdariffa_fruits.jpg',
+        caption: 'Hibiscus sabdariffa fruits'
       },
       {
-        url: 'https://images.unsplash.com/photo-1546853020-ca4909aef454?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Crimson iced hibiscus karkadeh tea with fresh citrus wheels'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Roselle_flower_%28Hibiscus_Sabdariffa%29_in_Capiov%C3%AD%2C_Misiones.jpg/1280px-Roselle_flower_%28Hibiscus_Sabdariffa%29_in_Capiov%C3%AD%2C_Misiones.jpg',
+        caption: 'Roselle flower (Hibiscus Sabdariffa) in Capioví, Misiones'
       },
       {
-        url: 'https://images.unsplash.com/photo-1572454591674-2739f30d8c40?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Macro botanical study of hibiscus stamen and golden pollen grains'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Roselle_flower_%28Hibiscus_Sabdariffa%29_in_Capiov%C3%AD.jpg/1280px-Roselle_flower_%28Hibiscus_Sabdariffa%29_in_Capiov%C3%AD.jpg',
+        caption: 'Roselle flower (Hibiscus Sabdariffa) in Capioví'
       }
     ],
     uses: {
@@ -321,20 +321,20 @@ const FLOWER_DATA = [
     remedyTags: ['stress', 'skin', 'tea', 'ecology'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Majestic sacred pink lotus floating on tranquil morning water'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Lotus_flower_%28978659%29.jpg/1280px-Lotus_flower_%28978659%29.jpg',
+        caption: 'Lotus flower (978659)'
       },
       {
-        url: 'https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Pure white lotus blossom showcasing golden center carpel'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Nelumbo_nucifera%2C_also_known_as_Indian_lotus_in_bud_stage_%28Image_7_of_7%29.jpg/1280px-Nelumbo_nucifera%2C_also_known_as_Indian_lotus_in_bud_stage_%28Image_7_of_7%29.jpg',
+        caption: 'Nelumbo nucifera, also known as Indian lotus in bud stage (Image 7 of 7)'
       },
       {
-        url: 'https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Lotus leaves exhibiting the hydrophobic "Lotus Effect" with water pearls'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Nelumbo_nucifera-IMG_3511-1.jpg/1280px-Nelumbo_nucifera-IMG_3511-1.jpg',
+        caption: 'Nelumbo nucifera-IMG 3511-1'
       },
       {
-        url: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Lotus seed pods and young budding flowers in a temple garden'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Nelumbo_nucifera-IMG_3511.jpg/1280px-Nelumbo_nucifera-IMG_3511.jpg',
+        caption: 'Nelumbo nucifera-IMG 3511'
       }
     ],
     uses: {
@@ -380,20 +380,20 @@ const FLOWER_DATA = [
     remedyTags: ['skin', 'tea', 'ecology'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Blazing golden-orange calendula flowers soaking up midsummer sun'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Bloemknop_van_een_goudsbloem_%28Calendula_officinalis%29_03-07-2020_%28d.j.b.%29_02.jpg/1280px-Bloemknop_van_een_goudsbloem_%28Calendula_officinalis%29_03-07-2020_%28d.j.b.%29_02.jpg',
+        caption: 'Bloemknop van een goudsbloem (Calendula officinalis) 03-07-2020 (d.j.b.) 02'
       },
       {
-        url: 'https://images.unsplash.com/photo-1536782376847-5c9d14d97cc0?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Rows of calendula blooms in an organic medicinal herb nursery'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Calendula_%28Calendula_officinalis%29.jpg/1280px-Calendula_%28Calendula_officinalis%29.jpg',
+        caption: 'Calendula (Calendula officinalis)'
       },
       {
-        url: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Sun-infused calendula herbal oil and restorative beeswax balm'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Calendula_officinalis_12012015.jpg/1280px-Calendula_officinalis_12012015.jpg',
+        caption: 'Calendula officinalis 12012015'
       },
       {
-        url: 'https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Resinous calendula flower head rich in healing triterpenoids'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Calendula_officinalis_flowerbud_22122014_%281%29.jpg/1280px-Calendula_officinalis_flowerbud_22122014_%281%29.jpg',
+        caption: 'Calendula officinalis flowerbud 22122014 (1)'
       }
     ],
     uses: {
@@ -441,20 +441,20 @@ const FLOWER_DATA = [
     remedyTags: ['ecology', 'skin', 'tea'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Breathtaking sunflower field illuminated by golden hour sunset'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/D%C3%BClmen%2C_Weddern%2C_Sonnenblumen_--_2026_--_2005.jpg/1280px-D%C3%BClmen%2C_Weddern%2C_Sonnenblumen_--_2026_--_2005.jpg',
+        caption: 'Dülmen, Weddern, Sonnenblumen -- 2026 -- 2005'
       },
       {
-        url: 'https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Stunning mathematical Fibonacci spiral of sunflower seed disc'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Eberndorf_K%C3%B6cking_Sonnenblumenfeld_Biohof_Tomic_18072014_0792.jpg/1280px-Eberndorf_K%C3%B6cking_Sonnenblumenfeld_Biohof_Tomic_18072014_0792.jpg',
+        caption: 'Eberndorf Köcking Sonnenblumenfeld Biohof Tomic 18072014 0792'
       },
       {
-        url: 'https://images.unsplash.com/photo-1508615070457-7baeba4003ab?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Honeybee happily collecting golden sunflower pollen'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Sonnenblume_Helianthus_1.JPG/1280px-Sonnenblume_Helianthus_1.JPG',
+        caption: 'Sonnenblume Helianthus 1'
       },
       {
-        url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Vast country sunflower panorama under an open azure sky'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sunflower_head_2026_G1.jpg/1280px-Sunflower_head_2026_G1.jpg',
+        caption: 'Sunflower head 2026 G1'
       }
     ],
     uses: {
@@ -503,20 +503,20 @@ const FLOWER_DATA = [
     remedyTags: ['immunity', 'tea', 'ecology'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Brilliant magenta-purple coneflower with iridescent spiky central cone'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/American_lady_on_purple_coneflower_%2874770%29.jpg/1280px-American_lady_on_purple_coneflower_%2874770%29.jpg',
+        caption: 'American lady on purple coneflower (74770)'
       },
       {
-        url: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Wild native prairie garden flourishing with coneflowers and grasses'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Echinacea_purpurea%2C_Jard%C3%ADn_Bot%C3%A1nico%2C_M%C3%BAnich%2C_Alemania%2C_2013-09-08%2C_DD_01.jpg/1280px-Echinacea_purpurea%2C_Jard%C3%ADn_Bot%C3%A1nico%2C_M%C3%BAnich%2C_Alemania%2C_2013-09-08%2C_DD_01.jpg',
+        caption: 'Echinacea purpurea, Jardín Botánico, Múnich, Alemania, 2013-09-08, DD 01'
       },
       {
-        url: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Herbalist gathering fresh echinacea blossoms for immune tincture'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Echinacea_purpurea_%27Sundown%27.jpg/1280px-Echinacea_purpurea_%27Sundown%27.jpg',
+        caption: 'Echinacea purpurea \'Sundown\''
       },
       {
-        url: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Warm immune-defense botanical tea decoction with echinacea and elderberries'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Echinacea_purpurea_in_Aboul.jpg/1280px-Echinacea_purpurea_in_Aboul.jpg',
+        caption: 'Echinacea purpurea in Aboul'
       }
     ],
     uses: {
@@ -565,20 +565,20 @@ const FLOWER_DATA = [
     remedyTags: ['skin', 'stress'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Extravagant blushing pink peony in full theatrical bloom'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Paeonia_lactiflora_%27Bowl_of_Beauty%27-2459.jpg/1280px-Paeonia_lactiflora_%27Bowl_of_Beauty%27-2459.jpg',
+        caption: 'Paeonia lactiflora \'Bowl of Beauty\'-2459'
       },
       {
-        url: 'https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Pure snow-white peony petals with delicate golden center'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Paeonia_lactiflora_%27Hot_Chocolate%27_Flower.JPG/1280px-Paeonia_lactiflora_%27Hot_Chocolate%27_Flower.JPG',
+        caption: 'Paeonia lactiflora \'Hot Chocolate\' Flower'
       },
       {
-        url: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Macro view of tightly layered silk-like peony ruffled petals'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Paeonia_lactiflora_2025.jpg/1280px-Paeonia_lactiflora_2025.jpg',
+        caption: 'Paeonia lactiflora 2025'
       },
       {
-        url: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Elegant bridal peony bouquet symbolizing romance and good fortune'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Paeonia_lactiflora_cv._Gold_Rush_Pair.jpg/1280px-Paeonia_lactiflora_cv._Gold_Rush_Pair.jpg',
+        caption: 'Paeonia lactiflora cv. Gold Rush Pair'
       }
     ],
     uses: {
@@ -625,20 +625,20 @@ const FLOWER_DATA = [
     remedyTags: ['tea', 'immunity', 'skin'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Frothy cream-white elderflower umbels blooming in English hedgerows'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Bloemknoppen_van_een_vlier_%28Sambucus_serenade%29._14-04-2021_%28actm.%29_01.jpg/1280px-Bloemknoppen_van_een_vlier_%28Sambucus_serenade%29._14-04-2021_%28actm.%29_01.jpg',
+        caption: 'Bloemknoppen van een vlier (Sambucus serenade). 14-04-2021 (actm.) 01'
       },
       {
-        url: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Handwoven basket filled with freshly foraged wild elderflower heads'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Elder_Flowers_%28Sambucus_nigra%29_-_geograph.org.uk_-_199374.jpg',
+        caption: 'Elder Flowers (Sambucus nigra) - geograph.org.uk - 199374'
       },
       {
-        url: 'https://images.unsplash.com/photo-1546853020-ca4909aef454?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Golden sparkling elderflower cordial with sliced lemons and garden mint'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Elder_flower_%28Sambucus_nigra%29%2C_Bishopstone_-_geograph.org.uk_-_1360308.jpg',
+        caption: 'Elder flower (Sambucus nigra), Bishopstone - geograph.org.uk - 1360308'
       },
       {
-        url: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Sunlit elderberry bush flourishing in pristine countryside'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Elder_flowers%2C_Sambucus_nigra_-_geograph.org.uk_-_5006459.jpg/1280px-Elder_flowers%2C_Sambucus_nigra_-_geograph.org.uk_-_5006459.jpg',
+        caption: 'Elder flowers, Sambucus nigra - geograph.org.uk - 5006459'
       }
     ],
     uses: {
@@ -687,20 +687,20 @@ const FLOWER_DATA = [
     remedyTags: ['sleep', 'stress', 'tea', 'ecology'],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Exquisite intricate purple corona of Passiflora incarnata'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Passiflora_incarnata_003.JPG/1280px-Passiflora_incarnata_003.JPG',
+        caption: 'Passiflora incarnata 003'
       },
       {
-        url: 'https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Climbing passionflower vine with curling tendrils and unopened buds'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Passiflora_incarnata_382343880.jpg/1280px-Passiflora_incarnata_382343880.jpg',
+        caption: 'Passiflora incarnata 382343880'
       },
       {
-        url: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Nighttime calming herbal tea blend with dried passionflower aerial parts'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Passiflora_incarnata_54199698.jpg/1280px-Passiflora_incarnata_54199698.jpg',
+        caption: 'Passiflora incarnata 54199698'
       },
       {
-        url: 'https://images.unsplash.com/photo-1565011523534-747a8601f10a?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Ripening wild maypop passionfruit on lush summer vine'
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Passiflora_incarnata_flower_and_bud.jpg/1280px-Passiflora_incarnata_flower_and_bud.jpg',
+        caption: 'Passiflora incarnata flower and bud'
       }
     ],
     uses: {
